@@ -521,7 +521,9 @@ a.btn:nth-child(2)::before{
         cursor: pointer;
         z-index: 101;
     }
-    
+    .header {
+      padding: 1.5rem 5%;
+    }
     .navbar {
         position: fixed;
         top: 0;
