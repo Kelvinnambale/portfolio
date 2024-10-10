@@ -343,6 +343,11 @@ a.btn:nth-child(2)::before{
   color: var(--text-color);
   
 }
+.contact p{
+  font-size: 2rem;
+  color: var(--text-color);
+  text-align: center;
+}
 .contact form{
   max-width: 70rem;
   margin:  1rem auto;
