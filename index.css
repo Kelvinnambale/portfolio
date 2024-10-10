@@ -24,6 +24,7 @@
 html{
   font-size: 62.5%;
   overflow-x: hidden;
+  
 }
 section{
     min-height: 90vh;
@@ -55,6 +56,7 @@ section{
     text-decoration: none;
     margin-left: 4rem;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 .navbar a.active, .navbar a:hover{
     color: var(--hover-color);

@@ -243,12 +243,13 @@
    </div>
  </footer>
 
- <!--typed js -->
- <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
- <!--scroll reveal-->
- <script src="https://unpkg.com/scrollreveal "></script>
+<!--typed js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<!--scroll reveal-->
+<script src="https://unpkg.com/scrollreveal"></script>
 
-  <script>
+<!-- Custom JavaScript -->
+<script>
   document.addEventListener('DOMContentLoaded', () => {
   const menuIcon = document.querySelector('#menu-icon');
   const navbar = document.querySelector('.navbar');
@@ -266,6 +267,68 @@
     }
     });
   });
+  // Scroll Reveal
+ScrollReveal({
+    distance: '80px',
+    duration: 2000,
+    delay: 200
+});
+
+ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+ScrollReveal().reveal('.home-img, .skills-container, .portfolio-box, .contact form', { origin: 'bottom' });
+ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
+ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+
+// Active link updating on scroll
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.navbar a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - sectionHeight / 3)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').slice(1) === current) {
+                link.classList.add('active');
+            }
+        });
+    });
+    
+    // Handle menu toggle (keeping your existing code)
+    const menuIcon = document.querySelector('#menu-icon');
+    const navbar = document.querySelector('.navbar');
+
+    menuIcon.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        menuIcon.classList.toggle('bx-x');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target) && !menuIcon.contains(e.target)) {
+            navbar.classList.remove('active');
+            menuIcon.classList.remove('bx-x');
+        }
+    });
+});
+
+// Typed.js implementation
+const typed = new Typed('.multiple-text', {
+    strings: ['Front End Developer', 'Network Administrator', 'IT Instructor'],
+    typeSpeed: 100,
+    backSpeed: 100,
+    backDelay: 1000,
+    loop: true
+});
   </script>
 </body>
 </html>
