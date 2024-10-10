@@ -452,46 +452,182 @@ a.btn:nth-child(2)::before{
   padding: 0 1.5rem;
   background-color: var(--bg-color);
 }
-/* Media Queries */
+/* General styles that affect responsiveness */
+.header {
+  padding: 2rem 9%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+}
+
+/* Large devices (1200px and down) */
+@media (max-width: 1200px) {
+  section {
+    padding: 2rem 3%;
+  }
+  
+  .header {
+    padding: 2rem 3%;
+  }
+  
+  .portfolio-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Laptops and small screens (1024px and down) */
+@media (max-width: 1024px) {
+  html {
+    font-size: 55%;
+  }
+  
+  .home-img img, .about-img img {
+    width: 40vw;
+  }
+  
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets and iPads (991px and down) */
 @media (max-width: 991px) {
-    .header {
-      padding: 2rem 3%;
-    }
+  .header {
+    padding: 1.5rem 3%;
   }
   
-  @media (max-width: 768px) {
-    #menu-icon {
-      display: block;
-    }
-  
-    .navbar {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      padding: 1rem 3%;
-      background: var(--bg-color);
-      border-top: .1rem solid rgba(0, 0, 0, .2);
-      box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-      display: none;
-      text-align: center;  /* Center align the container */
-    }
-  
-    .navbar.active {
-      display: block;
-    }
-  
-    .navbar a {
-      display: block;
-      font-size: 2rem;
-      margin: 3rem auto;  /* Changed from 3rem 0 to center horizontally */
-      padding: 0.5rem 0;
-      margin-left: 0;     /* Reset the margin-left that was set for desktop */
-    }
+  section {
+    padding: 5rem 3% 2rem;
   }
   
-  @media (max-width: 450px) {
-    .logo {
-      font-size: 2rem;
-    }
+  .home {
+    padding-top: 7rem;
   }
+  
+  .footer {
+    padding: 2rem 3%;
+  }
+}
+
+/* Medium devices (768px and down) */
+@media (max-width: 768px) {
+  #menu-icon {
+    display: block;
+    font-size: 3rem;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+  
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 3%;
+    background: var(--bg-color);
+    border-top: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+    display: none;
+  }
+  
+  .navbar.active {
+    display: block;
+  }
+  
+  .navbar a {
+    display: block;
+    font-size: 2rem;
+    margin: 3rem 0;
+  }
+  
+  .home {
+    flex-direction: column;
+  }
+  
+  .home-content h1 {
+    font-size: 4rem;
+  }
+  
+  .home-img img {
+    width: 70vw;
+    margin-top: 4rem;
+  }
+  
+  .about {
+    flex-direction: column-reverse;
+  }
+  
+  .about-img img {
+    width: 70vw;
+    margin-top: 4rem;
+  }
+}
+
+/* Small tablets (678px and down) */
+@media (max-width: 678px) {
+  .portfolio-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Large phones (568px and down) */
+@media (max-width: 568px) {
+  html {
+    font-size: 50%;
+  }
+  
+  .contact form .input-box input {
+    width: 100%;
+  }
+}
+
+/* Medium phones (456px and down) */
+@media (max-width: 456px) {
+  html {
+    font-size: 45%;
+  }
+  
+  .home-content h1 {
+    font-size: 3.5rem;
+  }
+  
+  .footer {
+    flex-direction: column-reverse;
+  }
+  
+  .footer p {
+    text-align: center;
+    margin-top: 2rem;
+  }
+}
+
+/* Small phones (368px and down) */
+@media (max-width: 368px) {
+  .home-img img, .about-img img {
+    width: 90vw;
+  }
+  
+  .footer {
+    text-align: center;
+  }
+  
+  .btn-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .btn-box a {
+    width: 100%;
+    text-align: center;
+  }
+}
