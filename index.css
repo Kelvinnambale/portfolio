@@ -343,7 +343,7 @@ a.btn:nth-child(2)::before{
   color: var(--text-color);
   
 }
-.contact p{
+.contact-para{
   font-size: 2rem;
   color: var(--text-color);
   text-align: center;
