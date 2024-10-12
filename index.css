@@ -646,3 +646,48 @@ a.btn:nth-child(2)::before{
     text-align: center;
   }
 }
+
+
+/* Overlay styles for form submission message */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: hidden;
+}
+
+#success-box {
+  background-color: var(--bg-color);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 0 1rem var(--hover-color);
+}
+
+#success-box p {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#closeOverlay {
+  background-color: var(--hover-color);
+  color: var(--second-text-color);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: 0.3s ease;
+}
+
+#closeOverlay:hover {
+  background-color: var(--second-text-color);
+  color: var(--hover-color);
+}
