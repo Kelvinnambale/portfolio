@@ -218,6 +218,8 @@
     <p class="contact-para">Fill out the form below and we'll get back to you as soon as possible.</p>
 
     <form id="contactForm">
+      <input type="hidden" name="access_key" value="15c48afd-fc7a-49d6-b545-c47c09786e97">
+      <input type="hidden" name="subject" value='${fullname} sent a message from portfolio website'>
       <div class="input-box">
         <input type="text" name="fullname" id="fullname" placeholder="Full Name" required>
         <input type="email" name="email" id="email" placeholder="Email Address" required>
@@ -363,7 +365,7 @@
 
       const formData = new FormData(this);
 
-      fetch('https://formsubmit.co/el/wuxidu', {
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData
       })
