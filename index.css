@@ -13,12 +13,18 @@
   font-family: 'Ubuntu', sans-serif;
 }
 
-:root{
+:root {
   --bg-color: #170122;
   --text-color: #ffffff;
   --second-text-color: #000000;
   --hover-color: #0cf7ff;
   --main-color: #082e86;
+  --focus-outline: #45c6ff;
+}
+
+a:focus, button:focus, input:focus, textarea:focus {
+  outline: 3px solid var(--focus-outline);
+  outline-offset: 2px;
 }
 
 html{
@@ -290,13 +296,13 @@ a.btn:nth-child(2)::before{
 .portfolio-box:hover img{
   transform: scale(1.1);
 }
-.portfolio-box .portfolio-layer{
+.portfolio-box .portfolio-layer {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(.1, 1, 0, 0), var(--hover-color));
+  background: linear-gradient(rgba(0, 0, 0, 0.1), var(--hover-color));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -359,18 +365,19 @@ a.btn:nth-child(2)::before{
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.contact form .input-box input, .contact form textarea{
+.contact form .input-box input, 
+.contact form textarea {
   width: 100%;
   padding: 1.5rem;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: var(--text-color);
   background: var(--bg-color);
-  border-radius: 2rem;
-  margin: .7rem 0;
+  border-radius: 0.8rem;
+  margin: 0.7rem 0;
   border: 2px solid var(--hover-color);
-  box-shadow: var(--neon-box-shadow);
-  border-radius: .8rem;
+  box-shadow: 0 0 1rem var(--hover-color);
 }
+
 .contact form .input-box input{
   width: 49%;
 }
@@ -643,8 +650,20 @@ a.btn:nth-child(2)::before{
   
   .btn-box a {
     width: 100%;
-    text-align: center;
+    text-align: center;    
   }
+  .social-media {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
 }
 
 
@@ -690,4 +709,115 @@ a.btn:nth-child(2)::before{
 #closeOverlay:hover {
   background-color: var(--second-text-color);
   color: var(--hover-color);
+}
+/* Animation keyframes */
+@keyframes slideRight {
+  0% {
+      transform: translateX(-100px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+      transform: translateY(100px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-20px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+@keyframes popUp {
+  0% {
+      transform: scale(0);
+      opacity: 0;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+/* Apply animations to elements */
+.home-content .slide-right {
+  opacity: 0;
+  animation: slideRight 1s ease forwards;
+}
+
+.home-content h1.slide-right {
+  animation-delay: 0.3s;
+}
+
+.home-content h3:nth-of-type(2).slide-right {
+  animation-delay: 0.6s;
+}
+
+.home-content p.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 0.9s;
+}
+
+.home-content .social-media.pop-up {
+  opacity: 0;
+  animation: popUp 0.5s ease forwards;
+  animation-delay: 1.2s;
+}
+
+.home-content .btn-box.slide-up {
+  opacity: 0;
+  animation: slideUp 0.5s ease forwards;
+  animation-delay: 1.5s;
+}
+
+.home-img.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Add hover animations for social media icons */
+.social-media a {
+  transition: transform 0.3s ease;
+}
+
+.social-media a:hover {
+  transform: translateY(-8px) scale(1.1);
+}
+
+/* Add hover effects for buttons */
+.btn-box a.btn {
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-box a.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(12, 247, 255, 0.4);
 }

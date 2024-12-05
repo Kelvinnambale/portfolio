@@ -33,14 +33,14 @@
 
   <section class="home" id="home">
     <div class="home-content">
-      <h3>Hello, It's Me</h3>
-      <h1>Kelvin Nambale</h1>
-      <h3>And I'm a <span class="multiple-text">Front End Developer</span></h3>
-      <p>I'm also an undergraduate student.
-        I major in Information Communication Technology as a domain. Proficient and
-        eager to learn new programs, processes and procedures quickly to maximize contributions to users, team and
-        business success.</p>
-      <div class="social-media">
+      <h3 class="slide-right">Hello, It's Me</h3>
+      <h1 class="slide-right">Kelvin Nambale</h1>
+      <h3 class="slide-right">And I'm a <span class="multiple-text">Front End Developer</span></h3>
+      <p class="fade-in">I'm also an undergraduate student.
+          I major in Information Communication Technology as a domain. Proficient and
+          eager to learn new programs, processes and procedures quickly to maximize contributions to users, team and
+          business success.</p>
+      <div class="social-media" pop-up>
         <a href="https://twitter.com/KelvinNambale" target="_blank"><i class='bx bxl-twitter'></i></a>
         <a href="https://www.linkedin.com/in/kelvinnambale/" target="_blank"><i class='bx bxl-linkedin'></i></a>
         <a href="https://github.com/Kelvinnambale" target="_blank"><i class='bx bxl-github'></i></a>
@@ -48,13 +48,13 @@
             class='bx bxl-facebook'></i></a>
         <a href="https://discord.com/channels/@me" target="_blank"><i class='bx bxl-discord'></i></a>
       </div>
-      <div class="btn-box">
+      <div class="btn-box" slide-up>
         <a href="CV.pdf" class="btn" download="Kelvin Nambale CV">Download CV</a>
         <a href="mailto:knambale5@gmail.com" class="btn">Hire Me</a>
       </div>
     </div>
 
-    <div class="home-img">
+    <div class="home-img" float>
       <img src="images/profile.png" alt="Profile home-image">
     </div>
   </section>
@@ -277,6 +277,9 @@
       const menuIcon = document.querySelector('#menu-icon');
       const navbar = document.querySelector('.navbar');
 
+       //class to trigger animations when page loads
+      document.querySelector('.home').classList.add('animate');
+
       menuIcon.onclick = () => {
         menuIcon.classList.toggle('bx-x');
         navbar.classList.toggle('active');
@@ -358,7 +361,12 @@
       typeSpeed: 100,
       backSpeed: 100,
       backDelay: 1000,
-      loop: true
+      loop: true,
+      showCursor: true,
+      cursorChar: '|',
+      fadeOut: true,
+      fadeOutClass: 'typed-fade-out',
+      fadeOutDelay: 500
     });
 
 
