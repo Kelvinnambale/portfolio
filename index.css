@@ -27,11 +27,11 @@ a:focus, button:focus, input:focus, textarea:focus {
   outline-offset: 2px;
 }
 
-html{
-  font-size: 62.5%;
-  overflow-x: hidden;
-  
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
+
 section{
     min-height: 90vh;
     padding: 2rem 9% 2rem;
@@ -67,11 +67,29 @@ section{
 .navbar a.active, .navbar a:hover{
     color: var(--hover-color);
 }
-#menu-icon{
-    font-size: 3.6rem;
-    color: var(--text-color);
-    cursor: pointer;
-    display: none;
+#menu-icon {
+  display: none;
+}
+
+#menu-icon .bar {
+  width: 35px;
+  height: 5px;
+  background-color: var(--text-color);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Transform the menu icon into an 'X' when active */
+#menu-icon.active .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-7px, 7px);
+}
+
+#menu-icon.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-icon.active .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-7px, -7px);
 }
 .home{
   display: flex;
@@ -526,40 +544,25 @@ a.btn:nth-child(2)::before{
 
 /* Medium devices (768px and down) */
 @media (max-width: 768px) {
-    #menu-icon {
-        display: block;
-        font-size: 3.6rem;
-        color: var(--text-color);
-        cursor: pointer;
-        z-index: 101;
-    }
-    .header {
-      padding: 1.5rem 5%;
-    }
-    .navbar {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        height: 100vh;
-        background: var(--bg-color);
-        padding: 2rem 9%;
-        transition: .5s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .navbar.active {
-        right: 0;
-    }
-    
-    .navbar a {
-        display: block;
-        font-size: 3rem;
-        margin: 2rem 0;
-    }
+  #menu-icon {
+    display: none;
+  }
+  
+  .navbar {
+    position: relative;
+    right: 0;
+    width: auto;
+    height: auto;
+    background: var(--bg-color);
+    flex-direction: row;
+    transition: none;
+  }
+  
+  .navbar a {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
   
   .home {
     flex-direction: column;
@@ -665,7 +668,6 @@ a.btn:nth-child(2)::before{
   }
   
 }
-
 
 /* Overlay styles for form submission message */
 #overlay {
@@ -820,4 +822,139 @@ a.btn:nth-child(2)::before{
 .btn-box a.btn:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(12, 247, 255, 0.4);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--hover-color);
+}
+
+/* Ensure navbar is visible */
+.navbar {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 100;
+}
+
+.navbar-toggler {
+  border-color: var(--hover-color);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 255, 255, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Ensure no elements are hidden at smaller sizes */
+@media (max-width: 735px) {
+  /* Check for any display: none or visibility: hidden */
+  /* Example: */
+  .navbar {
+    display: block; /* Ensure navbar is visible */
+  }
+  
+  /* Ensure other elements are visible */
+  .home, .about, .skills, .portfolio, .contact {
+    display: block;
+  }
+}
+
+section {
+  display: block !important;
+  padding: 2rem 3%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Navigation Bar Fixes */
+.header {
+  background-color: var(--bg-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0;
+}
+
+.navbar {
+  padding: 1rem 2rem;
+  background-color: var(--bg-color) !important;
+}
+
+.navbar-brand {
+  color: var(--text-color) !important;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.navbar-brand span {
+  color: var(--hover-color);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--text-color);
+  font-size: 1.8rem;
+  margin-left: 2rem;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--hover-color);
+}
+
+.navbar-toggler {
+  border-color: var(--hover-color);
+  padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(12, 247, 255, 0.25);
+}
+
+/* Fix for proper spacing of all sections below the navbar */
+section {
+  padding-top: 8rem;
+}
+
+@media (max-width: 991px) {
+  .navbar-nav {
+    padding-top: 1.5rem;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    margin-left: 0;
+    padding: 1rem 0;
+    text-align: center;
+  }
+}
+
+/* Toggler appears at 650px and below */
+@media (max-width: 650px) {
+  .navbar-collapse {
+    display: none; /* Hide the navbar links */
+  }
+
+  .navbar-toggler {
+    display: block; /* Show the toggler */
+  }
+
+  .navbar-toggler.collapsed + .navbar-collapse {
+    display: flex; /* Show the navbar links when toggler is clicked */
+    flex-direction: column;
+    align-items: center;
+  }
 }
