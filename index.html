@@ -10,56 +10,37 @@
   <!--box icons-->
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <!--custom css-->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Add Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 
   <!--Header design.....................-->
   <header class="header">
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container">
-        <a class="navbar-brand" href="#"><span>Nams</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#skills">Skills</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#portfolio">Portfolio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <a href="#" class="logo"><span>Nams</span></a>
+
+    <i class="bx bx-menu" id="menu-icon"></i>
+
+    <nav class="navbar">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
   <!-- Home-section design.................... -->
 
   <section class="home" id="home">
     <div class="home-content">
-      <h3 class="slide-right">Hello, It's Me</h3>
-      <h1 class="slide-right">Kelvin Nambale</h1>
-      <h3 class="slide-right">And I'm a <span class="multiple-text">Front End Developer</span></h3>
-      <p class="fade-in">I'm also an undergraduate student.
-          I major in Information Communication Technology as a domain. Proficient and
-          eager to learn new programs, processes and procedures quickly to maximize contributions to users, team and
-          business success.</p>
-      <div class="social-media" pop-up>
+      <h3>Hello, It's Me</h3>
+      <h1>Kelvin Nambale</h1>
+      <h3>And I'm a <span class="multiple-text">Front End Developer</span></h3>
+      <p>I'm also an undergraduate student.
+        I major in Information Communication Technology as a domain. Proficient and
+        eager to learn new programs, processes and procedures quickly to maximize contributions to users, team and
+        business success.</p>
+      <div class="social-media">
         <a href="https://twitter.com/KelvinNambale" target="_blank"><i class='bx bxl-twitter'></i></a>
         <a href="https://www.linkedin.com/in/kelvinnambale/" target="_blank"><i class='bx bxl-linkedin'></i></a>
         <a href="https://github.com/Kelvinnambale" target="_blank"><i class='bx bxl-github'></i></a>
@@ -67,13 +48,13 @@
             class='bx bxl-facebook'></i></a>
         <a href="https://discord.com/channels/@me" target="_blank"><i class='bx bxl-discord'></i></a>
       </div>
-      <div class="btn-box" slide-up>
+      <div class="btn-box">
         <a href="CV.pdf" class="btn" download="Kelvin Nambale CV">Download CV</a>
         <a href="mailto:knambale5@gmail.com" class="btn">Hire Me</a>
       </div>
     </div>
 
-    <div class="home-img" float>
+    <div class="home-img">
       <img src="images/profile.png" alt="Profile home-image">
     </div>
   </section>
@@ -290,18 +271,11 @@
   <!--scroll reveal-->
   <script src="https://unpkg.com/scrollreveal"></script>
 
-  <!-- Add Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <!-- Custom JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const menuIcon = document.querySelector('#menu-icon');
       const navbar = document.querySelector('.navbar');
-
-       //class to trigger animations when page loads
-      document.querySelector('.home').classList.add('animate');
 
       menuIcon.onclick = () => {
         menuIcon.classList.toggle('bx-x');
@@ -384,12 +358,7 @@
       typeSpeed: 100,
       backSpeed: 100,
       backDelay: 1000,
-      loop: true,
-      showCursor: true,
-      cursorChar: '|',
-      fadeOut: true,
-      fadeOutClass: 'typed-fade-out',
-      fadeOutDelay: 500
+      loop: true
     });
 
 
