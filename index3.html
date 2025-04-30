@@ -10,7 +10,7 @@
   <!--box icons-->
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <!--custom css-->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index.css">
 
   <!-- Add Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -294,32 +294,31 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
   <!-- Custom JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const menuIcon = document.querySelector('#menu-icon');
       const navbar = document.querySelector('.navbar');
 
-       //class to trigger animations when page loads
-      document.querySelector('.home').classList.add('animate');
-
+      // Toggle menu when clicking menu icon
       menuIcon.onclick = () => {
-        menuIcon.classList.toggle('bx-x');
+        menuIcon.classList.toggle('active');
         navbar.classList.toggle('active');
       };
 
       // Close menu when clicking a nav link
       document.querySelectorAll('.navbar a').forEach(link => {
-        link.onclick = () => {
-          menuIcon.classList.remove('bx-x');
+        link.addEventListener('click', () => {
+          menuIcon.classList.remove('active');
           navbar.classList.remove('active');
-        };
+        });
       });
 
       // Close menu when clicking outside
       document.addEventListener('click', (e) => {
-        if (!navbar.contains(e.target) && !menuIcon.contains(e.target)) {
-          menuIcon.classList.remove('bx-x');
+        if (!navbar.contains(e.target) && !menuIcon.contains(e.target) && navbar.classList.contains('active')) {
+          menuIcon.classList.remove('active');
           navbar.classList.remove('active');
         }
       });
@@ -366,14 +365,14 @@
 
       menuIcon.addEventListener('click', () => {
         navbar.classList.toggle('active');
-        menuIcon.classList.toggle('bx-x');
+        menuIcon.classList.toggle('active');
       });
 
       // Close menu when clicking outside
       document.addEventListener('click', (e) => {
         if (!navbar.contains(e.target) && !menuIcon.contains(e.target)) {
           navbar.classList.remove('active');
-          menuIcon.classList.remove('bx-x');
+          menuIcon.classList.remove('active');
         }
       });
     });
