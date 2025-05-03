@@ -19,15 +19,15 @@
   <header class="header">
     <a href="#" class="logo"><span>Nams</span></a>
 
-    <i class="bx bx-menu" id="menu-icon"></i>
+  <i class="bx bx-menu" id="menu-icon"></i>
 
-    <nav class="navbar">
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <nav class="navbar">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#portfolio">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
   </header>
   <!-- Home-section design.................... -->
 
@@ -278,9 +278,16 @@
       const navbar = document.querySelector('.navbar');
 
       menuIcon.onclick = () => {
-        menuIcon.classList.toggle('bx-x');
         navbar.classList.toggle('active');
+        if (menuIcon.classList.contains('bx-menu')) {
+          menuIcon.classList.remove('bx-menu');
+          menuIcon.classList.add('bx-x');
+        } else {
+          menuIcon.classList.remove('bx-x');
+          menuIcon.classList.add('bx-menu');
+        }
       };
+
 
       // Close menu when clicking a nav link
       document.querySelectorAll('.navbar a').forEach(link => {
@@ -333,23 +340,6 @@
           }
         });
       });
-
-      // Handle menu toggle (keeping your existing code)
-      const menuIcon = document.querySelector('#menu-icon');
-      const navbar = document.querySelector('.navbar');
-
-      menuIcon.addEventListener('click', () => {
-        navbar.classList.toggle('active');
-        menuIcon.classList.toggle('bx-x');
-      });
-
-      // Close menu when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!navbar.contains(e.target) && !menuIcon.contains(e.target)) {
-          navbar.classList.remove('active');
-          menuIcon.classList.remove('bx-x');
-        }
-      });
     });
 
     // Typed.js implementation
@@ -394,6 +384,13 @@
       overlay.style.visibility = 'hidden';
     };
   </script>
-</body>
+  <script>
+    // Auto reload the page every 10 seconds
+    setInterval(() => {
+      location.reload();
+    }, 20000);
+  </script>
+</body> 
 
 </html>
+
