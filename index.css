@@ -51,6 +51,11 @@ body.light-mode .navbar a.active {
   color: var(--hover-color);
 }
 
+/* Ensure mode toggle icon is white in dark mode */
+#mode-toggle, #mode-icon {
+  color: #ffffff;
+}
+
 /* Removed explicit h1, h3, p color overrides for light mode */
 
 html{
