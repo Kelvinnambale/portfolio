@@ -292,8 +292,9 @@
       // Close menu when clicking a nav link
       document.querySelectorAll('.navbar a').forEach(link => {
         link.onclick = () => {
-          menuIcon.classList.remove('bx-x');
           navbar.classList.remove('active');
+          menuIcon.classList.remove('bx-x');
+          menuIcon.classList.add('bx-menu');
         };
       });
 
