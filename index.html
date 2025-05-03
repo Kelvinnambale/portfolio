@@ -27,6 +27,9 @@
     <a href="#skills">Skills</a>
     <a href="#portfolio">Projects</a>
     <a href="#contact">Contact</a>
+    <button id="mode-toggle" aria-label="Toggle light/dark mode" style="background:none; border:none; cursor:pointer; color: var(--text-color); font-size: 2rem; margin-left: 1rem;">
+      <i class='bx bx-moon' id="mode-icon"></i>
+    </button>
   </nav>
   </header>
   <!-- Home-section design.................... -->
@@ -58,6 +61,8 @@
       <img src="images/profile.png" alt="Profile home-image">
     </div>
   </section>
+
+  <div class="line"></div>
 
   <!--About section design...................-->
 
@@ -210,6 +215,7 @@
     </div>
 
   </section>
+  <div class="line"></div>
 
   <!--Contact Section....................-->
 
@@ -385,8 +391,23 @@
       overlay.style.visibility = 'hidden';
     };
   </script>
-  <!-- Removed auto reload script to prevent menu icon disappearing issue -->
-</body> 
+  <script>
+    const modeToggle = document.getElementById('mode-toggle');
+    const modeIcon = document.getElementById('mode-icon');
+    const body = document.body;
 
-</html>
+    modeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      if (body.classList.contains('light-mode')) {
+        modeIcon.classList.remove('bx-moon');
+        modeIcon.classList.add('bx-sun');
+      } else {
+        modeIcon.classList.remove('bx-sun');
+        modeIcon.classList.add('bx-moon');
+      }
+    });
+  </script>
+ </body> 
+ 
+ </html>
 

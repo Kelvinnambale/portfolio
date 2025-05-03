@@ -32,6 +32,16 @@ img, .home-img img, .about-img img {
   --main-color: #082e86;
 }
 
+body.light-mode {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --second-text-color: #333333;
+  --hover-color: #007bff;
+  --main-color: #0056b3;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
 html{
   font-size: 62.5%;
   overflow-x: hidden;
@@ -134,7 +144,29 @@ section {
   }
 
   section {
-      padding: 10rem 3% 2rem;
+      padding: 6rem 3% 1rem;
+      margin-bottom: 1rem;
+  }
+
+  .home {
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .home-content {
+    margin-bottom: 0.5rem;
+  }
+
+  .about {
+    gap: 1rem;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .about-content {
+    margin-top: 0.5rem;
   }
 }
 
